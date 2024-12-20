@@ -36,6 +36,7 @@ export class CountryService {
 
     return this.http.get<RESTCountry[]>(url).pipe(
       map((resp) => CountryMapper.mapRestCountryArrayToCountryArray(resp)),
+      delay(2000),
       catchError((error) => {
         console.log('Error fetching ', error);
 
