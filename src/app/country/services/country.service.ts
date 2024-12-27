@@ -70,7 +70,7 @@ export class CountryService {
 
     return this.http.get<RESTCountry[]>(url).pipe(
       map((resp) => CountryMapper.mapRestCountryArrayToCountryArray(resp)),
-      tap((countries) => this.queryCacheCountry.set(region, countries)),
+      tap((countries) => this.queryCacheRegion.set(region, countries)),
       catchError((error) => {
         console.log('Error fetching ', error);
 
